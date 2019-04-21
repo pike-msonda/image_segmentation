@@ -112,21 +112,20 @@ def get_image_boundaries(labels, size):
 def get_variable_name(variable):
     return [k for k, v in locals().iteritems() if v == variable][0]
 
-
-def save_to_folder(folder=None, filename=None, image=None, imType=None):
-    if folder is None or filename is None or image is None:
-        print("Could not save to file. {0}, {1} , {2} must not be None".format(
-            folder, filename, image))
-        return
-    filename = folder + '/'+filename
-    if len(image.shape) == 3:
-        cv2.imwrite(filename, image)
-    elif imType == "a":
-        plt.imsave(filename, image)
-    else:
-        cv2.imwrite(filename, image)
-
-    print("succesfully saved  to {0}".format(filename))
+def save_to_folder(path,image, imType=None, folder=None):
+    if folder == None:
+        folder = 'images'
+    data_folders = [f for f in os.listdir(folder) if f != '.gitignore']
+    for directory in data_folders:
+        path = folder +'/'+directory +'/'+path
+        # import pdb; pdb.set_trace()
+        if len(image.shape) == 3:
+            cv2.imwrite(path, image)
+        elif imType == "a":
+            plt.imsave(path, image)
+        else:
+            cv2.imwrite(path, image)
+        print("succesfully saved  to {0}".format(path))
 
 
 def reshape_image(image, size):

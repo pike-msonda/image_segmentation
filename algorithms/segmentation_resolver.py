@@ -47,11 +47,10 @@ class SegmentationResolver:
                 filename = filename.split('.')[0] + '.png' #using PNG to avoid dimension change when saving to file
                 unfiltered = "/unfiltered/"+"unfiltered_"+filename
                 filename = algorithm + "/"+ filename
-
                # save to a folder
-                save_to_folder(folder='segs', filename=filename, image=segmented_image)
-                save_to_folder(folder='segs', filename=filec, image=segmented_image, imType='a')
-                save_to_folder(folder='binary', filename=filename, image=image_boundaries)
+                save_to_folder(path=filename, image=segmented_image)
+                # save_to_folder(folder='segs', filename=filec, image=segmented_image, imType='a')
+                # save_to_folder(folder='binary', filename=filename, image=image_boundaries)
                 # save_to_folder(folder='segs/'+algorithm, filename=unfiltered, image=unfiltered_segment)
     
     def execute_algorithm(self,algorithm, image_to_segment, original_image, im_size, cluster):
