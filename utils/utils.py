@@ -47,12 +47,13 @@ def read_human_seg(folder='images'):
     image_sizes = []
     for dir in image_folders:
         img_folder = os.listdir(folder+dir)[0]
-        file_name = [f for f in os.listdir(folder+dir+'/'+img_folder) if f.endswith('.png')][0] 
-        image_paths.append(folder+dir+'/'+img_folder+'/'+file_name)
+        files = [f for f in os.listdir(folder+dir+'/'+img_folder) if f.endswith('.png')]
+        for filename in files:
+            image_paths.append(folder+dir+'/'+img_folder+'/'+filename)
     for path in image_paths:
         print(path)
-        list_img_name.append(path.split('/')[1])
-        img = cv2.imread(path)
+        list_img_name.append(path.split('/')[-1])
+        img = plt.imread(path)
         # rgb_img = img.reshape((img.shape[0] * img.shape[1], 3))
         list_img.append(img)
         image_sizes.append(img.shape)
@@ -64,7 +65,7 @@ def filter_image(filter, image):
         filtered_image = median(image, disk(10))
     elif filter.upper() == "GAUSSIAN":
         print("Using {0} filter....".format(filter.upper()))
-        filtered_image = cv2.GaussianBlur(image, (25, 25), 0.5)
+        filtered_image = cv2.GaussianBlur(image, (5, 5), 0.5)
     else:
         print("Please use the correct filter name. {0} is not supported".format(
             filter.upper()))

@@ -47,7 +47,7 @@ class SegmentationResolver:
                 filename = filename.split('.')[0] + '.png' #using PNG to avoid dimension change when saving to file
                 unfiltered = "/unfiltered/"+"unfiltered_"+filename
                 filename = algorithm + "/"+ filename
-
+                # import pdb; pdb.set_trace()
                # save to a folder
                 save_to_folder(folder='segs', filename=filename, image=segmented_image)
                 save_to_folder(folder='segs', filename=filec, image=segmented_image, imType='a')

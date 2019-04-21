@@ -2,7 +2,7 @@ from algorithms.segmentation_resolver import SegmentationResolver
 from utils.utils import read_images
 from datetime import datetime
 
-CLUSTERS = [5]
+CLUSTERS = [3]
 IMAGES_FOLDER = "images"
 
 def execute(images, sizes, img_names, method=None):
@@ -18,10 +18,10 @@ def main():
     images, img_names, sizes =  read_images(folder=IMAGES_FOLDER)
     # import pdb; pdb.set_trace()
     execute(images, sizes, img_names, method='KMEANS') 
-    # execute(method='FUZZY') 
-    # execute(method='MEANSHIFT')
-    # execute(method='SOM')
-    # execute(method='GMM')
+    # execute(images, sizes, img_names, method='FUZZY') 
+    # execute(images, sizes, img_names, method='MEANSHIFT')
+    # execute(images, sizes, img_names, method='SOM')
+    # execute(images, sizes, img_names, method='GMM')
     # execute(method='DBSCAN') # too slow. 
     time_elapsed = datetime.now() - start
     
