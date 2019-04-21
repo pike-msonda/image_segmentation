@@ -109,10 +109,6 @@ def get_image_boundaries(labels, size):
     bounds = ret2 * 255 - ret * 255
     return bounds
 
-
-def get_variable_name(variable):
-    return [k for k, v in locals().iteritems() if v == variable][0]
-
 def save_to_folder(path,image, imType=None, folder=None):
     if folder == None:
         folder = 'images'
