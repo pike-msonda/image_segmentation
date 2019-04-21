@@ -18,7 +18,7 @@ def main():
     images, img_names, sizes =  read_images(folder=IMAGES_FOLDER)
     # import pdb; pdb.set_trace()
     execute(images, sizes, img_names, method='KMEANS') 
-    # execute(images, sizes, img_names, method='FUZZY') 
+    execute(images, sizes, img_names, method='FUZZY') 
     # execute(images, sizes, img_names, method='MEANSHIFT')
     # execute(images, sizes, img_names, method='SOM')
     # execute(images, sizes, img_names, method='GMM')
