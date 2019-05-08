@@ -21,12 +21,9 @@ function [Results]=ComputeFMeasure(DBpath,SegResultsSubPath,SysType)
 %Written by Sharon Alpert Department of Computer Science and Applied Mathematics
 %The Weizmann Institute of Science 2007
 
-
-Lpath={ 
-  '100_0109'
-  '100_0497'...
-    };
-
+Lpath={ '112255696146'...
+    '113334665744'};
+    
 if (nargin==2)
     SysType='win';
 end;
@@ -75,7 +72,7 @@ end;
 mask=mask>=2;
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%             Calcuate the F-score                                     %
+%              Calcuate the F-score                                    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [p r f]=CalcPRPixel(GT,mask)
     if (sum(GT(:)&mask(:))==0)

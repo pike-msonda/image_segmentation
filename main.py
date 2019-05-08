@@ -19,9 +19,9 @@ def main():
     # import pdb; pdb.set_trace()
     execute(images, sizes, img_names, method='KMEANS') 
     execute(images, sizes, img_names, method='FUZZY') 
-    # execute(images, sizes, img_names, method='MEANSHIFT')
-    # execute(images, sizes, img_names, method='SOM')
-    # execute(images, sizes, img_names, method='GMM')
+    execute(images, sizes, img_names, method='MEANSHIFT')
+    execute(images, sizes, img_names, method='SOM')
+    execute(images, sizes, img_names, method='GMM')
     # execute(method='DBSCAN') # too slow. 
     time_elapsed = datetime.now() - start
     
@@ -31,4 +31,5 @@ if __name__ =='__main__':
     main()
     #I have added new stuff.
     
+
 

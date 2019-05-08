@@ -1,4 +1,4 @@
-from scripts.execute import compute_fmeasure
+from scripts.execute import compute_fmeasure, compute_multi_fmeasure
 import pandas as pd
 from tabulate import tabulate
 import os
@@ -8,9 +8,6 @@ ALGO_SEGS = 'segs'
 SYSTEM_TYPE = 'pc'
 SEG_FOLDERS = ['kmeans', 'fuzzy', 'gmm', 'meanshift', 'som', 'dbscan']
 def main():
-     print(compute_fmeasure(HUMAN_SEG_FOLDER, ALGO_SEGS, SYSTEM_TYPE))
-
-def setup():
      results = pd.DataFrame(columns=['algorithm', 'image','f1-score', 'recall', 'precision'])
      image_folders = [f for f in os.listdir(HUMAN_SEG_FOLDER) if f != '.gitignore']
      for folder in image_folders:
@@ -34,4 +31,4 @@ def setup():
      print (dataframe.groupby(['algorithm']).mean())
      # import pdb; pdb.set_trace()
 if __name__ == "__main__":
-     setup()
+     main()

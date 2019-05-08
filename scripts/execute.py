@@ -10,3 +10,11 @@ def compute_fmeasure(db_path, seg_path, sys_type):
     res = engine.ComputeFMeasure(db_path, seg_path, sys_type)
     engine.quit()
     return res
+
+def compute_multi_fmeasure(db_path, seg_path, sys_type):
+    # import pdb; pdb.set_trace()
+    engine = create_engine()
+    # engine.addpath(r'C:\Users\Siphiwe Phiri\Desktop\weizmann-image_segmantation', nargout=0)
+    res = engine.ComputeFMeasureMultiSeg(db_path, seg_path, sys_type)
+    engine.quit()
+    return res

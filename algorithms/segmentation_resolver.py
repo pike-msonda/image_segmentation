@@ -43,13 +43,13 @@ class SegmentationResolver:
                 unfiltered_segment, unfiltered_boundaries = self.execute_algorithm(algorithm,reshaped, image, im_size, cluster)
                 
                 # import pdb; pdb.set_trace()
-                filec = algorithm +"/"+'color/' +filename.split('.')[0] +'_clr.jpg'
+                filec = 'alpha/'+algorithm+'/'+filename.split('.')[0] +'.jpg'
                 filename = filename.split('.')[0] + '.png' #using PNG to avoid dimension change when saving to file
                 unfiltered = "/unfiltered/"+"unfiltered_"+filename
                 filename = algorithm + "/"+ filename
                 # import pdb; pdb.set_trace()
                 save_to_folder(path=filename, image=segmented_image)
-                # save_to_folder(path=filec, image=segmented_image, imType='a')
+                save_to_folder(path=filec, image=segmented_image, imType='a')
                 # save_to_folder(folder='segs', filename=filec, image=segmented_image, imType='a')
                 # save_to_folder(folder='binary', filename=filename, image=image_boundaries)
                 # save_to_folder(folder='segs/'+algorithm, filename=unfiltered, image=unfiltered_segment)
